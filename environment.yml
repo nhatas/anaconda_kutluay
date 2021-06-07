@@ -1,0 +1,21 @@
+name: base
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+  - bioconda
+  - r
+dependencies:
+  - samtools
+  - bowtie2
+  - bowtie
+  - bedtools
+  - bwa
+  - fastx_toolkit
+  - perl
+  - r-essentials
+  - r-base
+  - r
+  - star
+  - bbmap
+  - ribotish
