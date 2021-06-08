@@ -39,8 +39,8 @@ RUN mamba create -c conda-forge -c bioconda -c anaconda -n bioinfo \
     bbmap \
     ribotish -y
 
-COPY /entrypoint.sh /opt/conda/bin/entrypoint.sh
-RUN chmod a+x /opt/conda/bin/entrypoint.sh
+COPY entrypoint.sh /opt/conda/bin/entrypoint.sh
+RUN chmod a+rwx /opt/conda/bin/entrypoint.sh
 
 #ENTRYPOINT ["/opt/conda/bin/entrypoint.sh"]
 CMD [".", "/opt/conda/bin/entrypoint.sh"]
