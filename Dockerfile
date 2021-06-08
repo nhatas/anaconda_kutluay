@@ -33,7 +33,7 @@ RUN conda install -n base -c conda-forge -c bioconda -c anaconda \
     r-base \
     r-essentials \
     samtools \
-    star \
+    "star<=2.7.1" \
     bbmap \
     ribotish -y
 
