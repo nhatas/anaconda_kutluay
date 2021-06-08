@@ -21,10 +21,8 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 
 ENV PATH=/opt/conda/bin:$PATH
 
-# install mamba
-RUN conda install -n base -c conda-forge mamba -y
-# create bioinformatics environment
-RUN mamba create -c conda-forge -c bioconda -c anaconda -n bioinfo \
+# install packages to base environment
+RUN conda install -n base -c conda-forge -c bioconda -c anaconda \
     bedtools \
     bowtie \
     bowtie2 \
@@ -40,7 +38,7 @@ RUN mamba create -c conda-forge -c bioconda -c anaconda -n bioinfo \
     ribotish -y
 
 COPY entrypoint.sh /opt/conda/bin/entrypoint.sh
-RUN chmod a+rwx /opt/conda/bin/entrypoint.sh
+RUN chmod a+x /opt/conda/bin/entrypoint.sh
 
 #ENTRYPOINT ["/opt/conda/bin/entrypoint.sh"]
 CMD [".", "/opt/conda/bin/entrypoint.sh"]

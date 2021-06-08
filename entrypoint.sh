@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/bash
 source /opt/conda/bin/activate bioinfo
