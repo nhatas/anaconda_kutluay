@@ -26,19 +26,16 @@ RUN conda install -n base -c conda-forge -c bioconda -c anaconda \
     bedtools \
     bowtie \
     bowtie2 \
-    bwa \
     fastx_toolkit \
     perl \
     r \
     r-base \
     r-essentials \
     samtools \
-    "star<=2.7.1" \
+    star \
     bbmap \
+    bwa \
     ribotish -y
-
-COPY entrypoint.sh /opt/conda/bin/entrypoint.sh
-RUN chmod a+x /opt/conda/bin/entrypoint.sh
 
 #ENTRYPOINT ["/opt/conda/bin/entrypoint.sh"]
 CMD [".", "/opt/conda/bin/entrypoint.sh"]
