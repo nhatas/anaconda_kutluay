@@ -22,7 +22,8 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 ENV PATH=/opt/conda/bin:$PATH
 
 # install packages to base environment
-RUN conda install -n base -c conda-forge -c bioconda -c anaconda \
+RUN conda install mamba -n base -c conda-forge && \
+    mamba install -n base -c conda-forge -c bioconda -c anaconda \
     bedtools \
     bowtie \
     bowtie2 \
@@ -36,6 +37,9 @@ RUN conda install -n base -c conda-forge -c bioconda -c anaconda \
     bbmap \
     bwa \
     ribotish -y
+
+COPY /entrypoint.sh /opt/conda/bin/entrypoint.sh
+RUN chmod a+x /opt/conda/bin/entrypoint.sh
 
 #ENTRYPOINT ["/opt/conda/bin/entrypoint.sh"]
 CMD [".", "/opt/conda/bin/entrypoint.sh"]
